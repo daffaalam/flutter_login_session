@@ -1,0 +1,12 @@
+name: login
+description: Login Session with Shared Preferences
+version: 1.0.0+1
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  shared_preferences: ^0.5.7+3
+  http: ^0.12.1
+flutter:
+  uses-material-design: true
