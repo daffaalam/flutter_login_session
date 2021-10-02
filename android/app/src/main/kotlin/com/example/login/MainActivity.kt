@@ -1,4 +1,4 @@
-package com.daffaalam.login
+package com.example.login
 
 import io.flutter.embedding.android.FlutterActivity
 

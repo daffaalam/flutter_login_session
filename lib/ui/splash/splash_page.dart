@@ -1,33 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../config/constant.dart';
+import '../../common/app_route.dart';
+import '../../common/constant.dart';
 
 class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> {
-  void _checkToken() async {
+  Future<void> _checkToken() async {
     SharedPreferences _preferences = await SharedPreferences.getInstance();
-    String _token = _preferences.getString(Constant.keyToken);
+    String? _token = _preferences.getString(Constant.keyToken);
     Navigator.pushReplacementNamed(
       context,
-      _token != null ? Constant.homeRoute : Constant.loginRoute,
+      _token != null ? AppRoute.homeRoute : AppRoute.loginRoute,
       arguments: _token,
     );
   }
 
   @override
   void initState() {
-    _checkToken();
     super.initState();
+    _checkToken();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: CircularProgressIndicator(),
       ),
